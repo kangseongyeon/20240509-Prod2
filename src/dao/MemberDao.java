@@ -26,7 +26,7 @@ public class MemberDao {
 					 "VALUES((SELECT NVL(MAX(MEM_NO),0) + 1 FROM JAVA_MEMBER), "
 					 + " ?, ?, ?, 'N', ?)";
 		
-		jdbc.selectOne(sql, param);
+		jdbc.update(sql, param);
 		
 	}
 	

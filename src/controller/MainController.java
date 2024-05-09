@@ -93,17 +93,16 @@ public class MainController extends Print {
 		return View.PROD_LIST;
 	}
 
-	private View delete() {	// 삭제  안됨
+	private View delete() {
 		if (debug) System.out.println("# 상품 삭제 후 전체리스트 이동");
 		
 		List<Map<String, Object>> list = prodService.list();
-		
 		for (Map<String, Object> map : list) {
 			System.out.println(map);
 		}
 		
 		int prodNo = ScanUtil.nextInt("상품 번호 :");
-		List<Object> param = new ArrayList();
+		List<Object> param = new ArrayList<>();
 		param.add(prodNo);
 		
 		int result = prodService.delete(param);
@@ -112,9 +111,8 @@ public class MainController extends Print {
 			return View.PROD_DELETE;
 		}
 		
-		List<Map<String, Object>> list1 = prodService.list();
-		
-		for (Map<String, Object> map : list1) {
+		List<Map<String, Object>> listAfterDelete  = prodService.list();
+		for (Map<String, Object> map : listAfterDelete ) {
 			System.out.println(map);
 		}
 		
@@ -221,7 +219,6 @@ public class MainController extends Print {
 			System.out.println("로그인 실패");
 			return View.SIGN;
 		}
-	
 		else return View.PROD_MANAGEMENT;
 	}
 

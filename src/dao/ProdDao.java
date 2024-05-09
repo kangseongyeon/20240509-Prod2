@@ -35,10 +35,8 @@ public class ProdDao {
 	}
 
 	public int delete(List<Object> param) {
-		String sql = "UPDATE JAVA_PROD\r\n" + 
-					 "SET DELYN = 'Y'\r\n" + 
-					 "WHERE NO = ?";
-		
+		String sql = "DELETE FROM JAVA_PROD\r\n" + 
+					 "WHERE NO = ? ";
 		
 		return jdbc.update(sql, param);
 	}
